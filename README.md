@@ -50,7 +50,7 @@ Each later kill within 10s of your last adds 10% kill XP, up to 200% on your ten
 
 Type `rank` for your current team's statistics and rank. Kills after the round ends grant no XP, rank, or role priority.
 
-Default timeout behavior reveals surviving Invisant during the round transition. Servers can choose to kill them instead. Type `bugs` for known limitations.
+Default timeout behavior reveals surviving Invisant during the round transition. Servers can choose to kill them instead.
 
 ## ESP and wallhacks
 
@@ -236,7 +236,7 @@ Keep the generated `addons/sourcemod/scripting/include/shroudfire/guides.inc`; i
 
 ## Compatibility and known limitations
 
-Windows builds were checked with the local SourceMod 1.12 compiler. The optional Linux Connect addon and multiplayer effects still need validation on the destination server.
+Windows builds were checked with the local SourceMod 1.12 compiler. 
 
 Menus use SourceMod number keys; the Counter-Strike 2 edition's HUD navigation keys do not apply here. HTML guides describe the supplied defaults, while native fallback guides display current server settings.
 
