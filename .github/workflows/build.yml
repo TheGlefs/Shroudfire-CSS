@@ -9,10 +9,15 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install SourceMod compiler
+        env:
+          SOURCEMOD_URL: https://github.com/alliedmodders/sourcemod/releases/download/1.12.0.7255/sourcemod-1.12.0-git7255-linux.tar.gz
+          SOURCEMOD_SHA256: 02be752ddc25d344a379800df9395a2847ab85b71acea9167fdca8163010d5b9
         run: |
           mkdir -p /tmp/sourcemod
-          filename=$(curl --fail --silent --show-error https://sm.alliedmods.net/smdrop/1.12/sourcemod-latest-linux)
-          curl --fail --silent --show-error --location "https://sm.alliedmods.net/smdrop/1.12/$filename" | tar -xz -C /tmp/sourcemod
+          curl --fail --silent --show-error --location --retry 3 \
+            --output /tmp/sourcemod.tar.gz "$SOURCEMOD_URL"
+          echo "$SOURCEMOD_SHA256  /tmp/sourcemod.tar.gz" | sha256sum --check --strict
+          tar -xzf /tmp/sourcemod.tar.gz -C /tmp/sourcemod
           chmod +x /tmp/sourcemod/addons/sourcemod/scripting/spcomp64
       - name: Check repository contracts
         if: ${{ hashFiles('tests/test_*.py') != '' }}

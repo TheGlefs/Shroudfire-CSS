@@ -41,7 +41,7 @@ python tools/build.py --compiler C:\css-server\cstrike\addons\sourcemod\scriptin
 
 On Linux, pass your SourceMod `addons/sourcemod/scripting/spcomp` path instead. Use `--include` if the standard SourceMod includes are in another directory. The build treats compiler warnings as errors.
 
-The install tree is `dist/package/`; the archive is `dist/shroudfire-css-1.0.0.zip`. Optional FastDL files appear under `dist/fastdl/`, with both raw and bzip2 assets. No build step modifies a running server. GitHub Actions compiles and packages the plugin and the Linux x86 Connect addon on every push and pull request.
+The install tree is `dist/package/`; the archive is `dist/shroudfire-css-1.0.0.zip`. Optional FastDL files appear under `dist/fastdl/`, with both raw and bzip2 assets. No build step modifies a running server. GitHub Actions compiles and packages the plugin and the Linux x86 Connect addon on every push and pull request. The plugin job pins SourceMod 1.12.0.7255 from its official GitHub release and verifies the archive's SHA-256.
 
 ## Install
 
