@@ -46,7 +46,7 @@ python ../../connect/configure.py --enable-optimize --sdks=css --targets=x86 \
 ambuild
 ```
 
-The automatic script also adjusts SourceMod SDK delete declarations for GCC's `noexcept` requirements when needed. It does not change the installed game server.
+The automatic script also adjusts SourceMod SDK delete declarations for GCC's `noexcept` requirements when needed. SDK warning suppressions apply to C++ sources; Zydis is compiled as C with the shared warning checks retained. It does not change the installed game server.
 
 ## Install
 

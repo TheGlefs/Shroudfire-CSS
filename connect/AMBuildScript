@@ -382,7 +382,16 @@ class ExtensionConfig(object):
     for other_sdk in self.sdk_manifests:
       compiler.defines += ['SE_{}={}'.format(other_sdk['define'], other_sdk['code'])]
 
+    shared_flags = set(compiler.cflags)
     SdkHelpers.configureCxx(context, binary, sdk)
+
+    # SDK headers are C++-only; keep their warning suppressions off Zydis.c.
+    if compiler.like('gcc'):
+      for flag in compiler.cflags[:]:
+        if flag.startswith('-Wno-') and flag not in shared_flags:
+          compiler.cflags.remove(flag)
+          if flag not in compiler.cxxflags:
+            compiler.cxxflags.append(flag)
 
     return binary
 
