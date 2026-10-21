@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shroudfire Guide</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            background: #080604;
+            color: #ffb900;
+            font-family: Arial, Verdana, sans-serif;
+            font-size: 2.6vmin;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        body {
+            overflow-y: auto;
+        }
+
+        .content {
+            padding: 1.75vmin 2.1vmin 3.5vmin;
+        }
+
+        h2 {
+            margin: 2.1vmin 0 0.5vmin;
+            font-size: 2.95vmin;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        .heading-guide,
+        .heading-rotation,
+        .heading-progression,
+        .value {
+            color: #93c47d;
+        }
+
+        .heading-invisant,
+        .invisant-name {
+            color: #7fa7ff;
+        }
+
+        .heading-armitive,
+        .armitive-name {
+            color: #e07a6a;
+        }
+
+        p {
+            margin: 0 0 1.55vmin;
+        }
+
+        code {
+            color: #b9a176;
+            font: bold 1em Arial, Verdana, sans-serif;
+        }
+
+        .footer {
+            margin-top: 2.1vmin;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2 class="heading-guide">HOW TO PLAY</h2>
+
+        <h2 class="heading-invisant">INVISANT</h2>
+        <p>Invisible, knife-only. <span class="armitive-name">Armitive</span> cannot hear your footsteps. Kill all <span class="armitive-name">Armitive</span> to win. Knife: <span class="value">60-degree</span> cone, <span class="value">72</span> units of reach, <span class="value">50-75</span> raw damage per hit by default. Servers can configure both damage bounds.</p>
+        <p>No backstab bonus; knife attacks at <span class="value">66%</span> of normal speed. Track living <span class="armitive-name">Armitive</span> through walls and take no fall damage.</p>
+        <p>After <span class="value">60s</span> of live play, <span class="value">45s</span> without dealing or taking damage starts <code>Starvation</code>. You lose <span class="value">1 HP/s</span>, increasing to <span class="value">3 HP/s</span> after <span class="value">20s</span> of continuous starvation. Starting at full health at 1:00, you die with roughly <span class="value">0:15</span> remaining unless combat resets it. Server settings can change the delays, damage, and tick intervals.</p>
+
+        <h2 class="heading-armitive">ARMITIVE</h2>
+        <p>Find the <span class="invisant-name">Invisant</span> with firearms, blood, and contact. Buy weapons permitted by this server. The default purchase restriction blocks the <code>M249</code>; administrators can change the list. <span class="armitive-name">Armitive</span> win if anyone survives the round timer.</p>
+        <p>Headshot damage to <span class="invisant-name">Invisant</span> is halved and capped at <span class="value">90</span>. One headshot cannot kill a full-health <span class="invisant-name">Invisant</span>.</p>
+
+        <p>Move at least <span class="value">256</span> units from your tracked position to avoid camping. A warning starts after <span class="value">20s</span>; after another <span class="value">10s</span>, you lose <span class="value">10</span> HP/s until you move away.</p>
+
+        <h2 class="heading-rotation">ROTATION</h2>
+        <p>Roles rotate each round. A <span class="armitive-name">Armitive</span> who kills an <span class="invisant-name">Invisant</span> gets priority to become <span class="invisant-name">Invisant</span> next round.</p>
+        <p>Otherwise, the longest-waiting eligible player becomes <span class="invisant-name">Invisant</span>. Suicide forfeits next-round eligibility.</p>
+
+        <h2 class="heading-progression">PROGRESSION</h2>
+        <p>Kills, qualifying damage assists, and completed-round wins grant separate <span class="invisant-name">Invisant</span> and <span class="armitive-name">Armitive</span> XP.</p>
+        <p>As <span class="armitive-name">Armitive</span>, knife kills earn <span class="value">150%</span> kill XP; pistol kills, <span class="value">125%</span>. Levels grant upgrade points. In chat, type <code>upgrade</code> for effects, <code>menu</code> to spend points, or <code>reset</code> to refund them.<br>Changes apply immediately in the opening <span class="value">20s</span>, then next round afterward.</p>
+
+        <h2 class="heading-progression">KILL STREAKS</h2>
+        <p>In 2v2+ rounds, the first enemy kill earns <code>First Blood</code>: <span class="value">125%</span> kill XP. Your second kill within <span class="value">10s</span> of the last earns <span class="value">120%</span>.</p>
+        <p>Each later kill within <span class="value">10s</span> of your last adds <span class="value">10%</span> kill XP, up to <span class="value">200%</span> on your tenth kill. Only you hear the sounds.</p>
+
+        <h2 class="heading-progression">RANK</h2>
+        <p>Type <code>rank</code> for your current team's statistics and rank. Kills after the round ends grant no XP, rank, or role priority.</p>
+        <p>Default timeout behavior reveals surviving <span class="invisant-name">Invisant</span> during the round transition. Servers can choose to kill them instead. Type <code>bugs</code> for known limitations.</p>
+
+        <p class="footer">Type <code>help</code> to reopen this panel.</p>
+    </div>
+</body>
+</html>

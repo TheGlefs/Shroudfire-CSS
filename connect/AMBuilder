@@ -1,0 +1,36 @@
+# vim: set sts=2 ts=8 sw=2 tw=99 et ft=python:
+import os
+
+if not "SM" in globals():
+  SM = Extension
+
+projectName = 'connect'
+
+project = builder.LibraryProject(projectName)
+project.sources += [
+  'extension.cpp',
+  os.path.join(SM.sm_root, 'public', 'smsdk_ext.cpp')
+]
+
+for sdk_name in SM.sdks:
+  sdk = SM.sdks[sdk_name]
+  if sdk['name'] in ['mock']:
+    continue
+
+  for cxx in builder.targets:
+    cxx.defines += ['HAVE_STRING_H'];
+    if not cxx.target.arch in sdk['platforms'][cxx.target.platform]:
+      continue
+
+    binary = Extension.HL2ExtConfig(project, builder, cxx, projectName + '.ext.' + sdk['extension'], sdk)
+	
+    SM.AddCDetour(binary)
+	
+    binary.compiler.cxxflags += [
+      '-Wno-dangling-else',
+      '-Wno-unknown-pragmas',
+      '-Wno-unused-result',
+      '-Wno-sign-compare',
+	]
+
+SM.extensions += builder.Add(project)

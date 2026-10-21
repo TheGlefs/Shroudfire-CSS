@@ -1,0 +1,50 @@
+name: Build Source plugin
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install SourceMod compiler
+        run: |
+          mkdir -p /tmp/sourcemod
+          filename=$(curl --fail --silent --show-error https://sm.alliedmods.net/smdrop/1.12/sourcemod-latest-linux)
+          curl --fail --silent --show-error --location "https://sm.alliedmods.net/smdrop/1.12/$filename" | tar -xz -C /tmp/sourcemod
+          chmod +x /tmp/sourcemod/addons/sourcemod/scripting/spcomp64
+      - name: Check repository contracts
+        if: ${{ hashFiles('tests/test_*.py') != '' }}
+        run: python -m unittest discover -s tests -v
+      - name: Regenerate references and verify no drift
+        run: |
+          python tools/generate_guides.py
+          python tools/generate_reference.py
+          git diff --exit-code
+      - name: Compile and package
+        run: python tools/build.py --compiler /tmp/sourcemod/addons/sourcemod/scripting/spcomp64 --fastdl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shroudfire-css
+          path: |
+            dist/shroudfire-css-*.zip
+            dist/SHA256.json
+            dist/fastdl/
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Linux x86 compiler
+        run: sudo apt-get update && sudo apt-get install -y g++-multilib binutils
+      - name: Compile Connect query-cache addon
+        run: bash tools/build_connect.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shroudfire-connect-linux-x86
+          path: |
+            dist/shroudfire-connect-linux-x86.zip
+            dist/connect/package/

@@ -1,0 +1,37 @@
+{
+  "kHelpPages": [
+    "INVISANT\nInvisible assailant.\nArmitive cannot hear your\nfootsteps. Kill all Armitive to\nwin. Track living Armitive\nthrough walls. No fall damage.",
+    "INVISANT\nKnife-only. {KNIFE_CONE} deg cone.\n{KNIFE_RANGE} units of reach.\n{KNIFE_LOW}-{KNIFE_HIGH} damage per hit.\nNo backstab bonus. Attacks at\n{KNIFE_SPEED}% of normal speed.",
+    "INVISANT\nAfter {STARVATION_ROUND_DELAY}s of live play, {STARVATION_COMBAT_DELAY}s\nwithout dealing or taking\ndamage starts Starvation.\n{STARVATION_DAMAGE} HP / {STARVATION_INTERVAL}s; after {STARVATION_ACCELERATION_DELAY}s:\n{STARVATION_ACCELERATED_DAMAGE} HP / {STARVATION_ACCELERATED_INTERVAL}s until combat.",
+    "ARMITIVE\nArmed fugitive. Find the\nInvisant with firearms, blood,\nand contact. Buy weapons\npermitted by this server.\nWin if any survive the timer.",
+    "ARMITIVE\nHeadshot damage to Invisant is\nhalved and capped at 90. One\nheadshot cannot kill a\nfull-health Invisant.\nTimer ends: Invisant {TIMEOUT_RESULT}",
+    "ROUND END\nThe round result is final.\nKills after round end give no\nXP, rank, or Invisant priority.\nKeep earned priority and wait\nfor the next round.",
+    "ROTATION\nRoles rotate each round. A\nArmitive who kills an Invisant\ngets priority to become Invisant\nnext round.",
+    "ROTATION\nOtherwise, the longest-waiting\neligible player becomes\nInvisant. Suicide forfeits\nnext-round eligibility.",
+    "RANKINGS\nType rank for current-team stats.\nKills and assists raise ratings;\ndeaths lower them. More combat\nmakes your record count more.",
+    "PROGRESSION\nKills, qualifying damage\nassists, and completed-round\nwins grant separate Invisant and\nArmitive XP.",
+    "PROGRESSION\nAs Armitive, knife kills earn {KNIFE_XP}%\nkill XP; pistol kills, {PISTOL_XP}%.\nLevels grant upgrade points. In\nchat, type upgrade for effects;\nmenu to spend or reset points.",
+    "KILL STREAKS\nIn 2v2+ rounds, the first enemy\nkill earns First Blood: 125%\nkill XP. Your second kill within\n10s of the last earns 120%.",
+    "KILL STREAKS\nEach later kill within 10s of\nyour last adds 10% kill XP, up\nto 200% on your tenth kill. Only\nyou hear the sounds.\nType help to reopen this panel."
+  ],
+  "kCheatPages": [
+    "ESP AND WALLHACKS\nInvisant are not made\ntransparent. The server does not\nsend Invisant players, or their\nweapon and movement sounds, to\nArmitive computers.",
+    "ESP AND WALLHACKS\nESP and wallhacks can only show\ndata a computer receives. With\nno Invisant player data, they\ncannot reveal or track an\nInvisant.",
+    "ESP AND WALLHACKS\nArmitive still see blood and\nbullet impacts, and hear damage\nsounds. Report suspicious\nbehavior to an administrator."
+  ],
+  "kKnownBugPages": [
+    "KNOWN LIMITATIONS\nSource cannot change the stock scoreboard team headings.\nThrough-wall tracking uses lines.\nReload and switch animations may retain their normal speed.",
+    "AUDIO AND ASSETS\nCustom voices, claws and models need working client downloads.\nLocal movement prediction silencing can depend on the client.\nType audio to choose voice categories."
+  ],
+  "kUpgradePages": [
+    "Normal stages unlock at role\nlevels {N1}, {N2}, {N3}, {N4} and {N5}\nUltimate stages unlock at role\nlevels {U1}, {U2}, {U3}, {U4} and {U5}\nType menu to spend/reset points",
+    "ARMITIVE\nFortitude - Gain {FORTITUDE} maximum\nhealth per stage\nRecovery - Restore {RECOVERY} health\nper stage every {RECOVERY_INTERVAL} seconds",
+    "ARMITIVE\nOverload - Gain {OVERLOAD}% extra\nmagazine capacity per stage\nStockpile - Gain {STOCKPILE} extra\nreserve ammo clip per stage",
+    "ARMITIVE\nBarrage - Gain {BARRAGE}% faster\nweapon fire rate per stage\nControl - Gain {CONTROL}% less recoil\nand bullet spread per stage",
+    "ARMITIVE\nDexterity - Cut reload and weapon\nswitch time by {DEXTERITY}% per stage\nUltimate: Ward - Press E for\n{WARD_BASE} seconds of immunity at 1/5,\nplus {WARD_STEP} seconds per stage",
+    "INVISANT\nLightweight - Gain {LIGHTWEIGHT}% less\ngravity per stage\nMomentum - Gain {MOMENTUM}% faster\nrun speed per stage",
+    "INVISANT\nResilience - Gain {RESILIENCE} armor\nper stage and helmet at {HELMET_STAGE}/5\nReforging - Gain {REFORGING} armor per\nstage every {REFORGING_INTERVAL} seconds",
+    "INVISANT\nVampirism - Gain {VAMPIRISM} health per\nstage when dealing damage\nBloodlust - Gain {BLOODLUST} health per\nstage when killing an enemy",
+    "INVISANT\nMobility - Gain {MOBILITY}% faster\ncrouching speed per stage\nUltimate: Surge - Press E for a\n{SURGE_BASE} unit speed boost at 1/5,\nincreased by {SURGE_STEP} per stage"
+  ]
+}

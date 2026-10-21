@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shroudfire commands</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            background: #080604;
+            color: #ffb900;
+            font-family: Arial, Verdana, sans-serif;
+            font-size: 2.6vmin;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        body {
+            overflow-y: auto;
+        }
+
+        .content {
+            padding: 1.75vmin 2.1vmin 3.5vmin;
+        }
+
+        h2 {
+            margin: 2.1vmin 0 0.5vmin;
+            font-size: 2.95vmin;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        .heading-guide,
+        .heading-rotation,
+        .heading-progression,
+        .value {
+            color: #93c47d;
+        }
+
+        .heading-invisant,
+        .invisant-name {
+            color: #7fa7ff;
+        }
+
+        .heading-armitive,
+        .armitive-name {
+            color: #e07a6a;
+        }
+
+        p {
+            margin: 0 0 1.55vmin;
+        }
+
+        code {
+            color: #b9a176;
+            font: bold 1em Arial, Verdana, sans-serif;
+        }
+
+        .footer {
+            margin-top: 2.1vmin;
+        }
+        table { border-collapse: collapse; width: 100%; margin: 1.5vmin 0; }
+        td, th { border: 1px solid #403523; padding: 1vmin; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="content">
+<h2 class="heading-guide">Shroudfire commands and settings</h2><h2>Chat shortcuts</h2><table><tr><th>Chat text</th><th>Action</th></tr>
+<tr><td><code>help</code></td><td>Open the gameplay guide.</td></tr>
+<tr><td><code>menu</code></td><td>Open the upgrade menu for your current role.</td></tr>
+<tr><td><code>upgrade</code></td><td>Open the upgrade guide.</td></tr>
+<tr><td><code>reset</code></td><td>Refund your current role&#x27;s upgrades and open the upgrade menu.</td></tr>
+<tr><td><code>rank</code></td><td>Show your current team&#x27;s rank and combat statistics; 9 switches teams and 0 exits.</td></tr>
+<tr><td><code>audio</code></td><td>Open your audio settings menu.</td></tr>
+<tr><td><code>bugs</code></td><td>Open the known bugs guide.</td></tr>
+<tr><td><code>cheat</code></td><td>Open the visibility and anti-cheat guide.</td></tr>
+<tr><td><code>close</code></td><td>Close an open upgrade menu or guide.</td></tr>
+<tr><td><code>1–8</code></td><td>Buy the corresponding upgrade while the upgrade menu is open.</td></tr>
+</table>
+<p>The upgrade menu shows all eight upgrades on one page: 1–8 buy, 9 resets points, and 0 exits. Chat digits 1–8 also buy while the menu is open.</p><h2>Console commands</h2><table><tr><th>Command</th><th>Access</th><th>Description</th></tr>
+<tr><td><code>sf_status</code></td><td>Generic admin or server console</td><td>Displays Shroudfire state, map rotation, teams, queue, AFK players, and spawn capacity.</td></tr>
+<tr><td><code>sf_observe [player]</code></td><td>Generic admin</td><td>Moves you to Spectator to watch a living player or use a free camera.</td></tr>
+<tr><td><code>sf_restart</code></td><td>Generic admin or server console</td><td>Restarts the current round without advancing the Invisant roster, including with one active player. Requires the generic admin flag.</td></tr>
+<tr><td><code>sf_invisant</code></td><td>Root admin</td><td>Moves you to the Invisant team and respawns you at its spawn.</td></tr>
+<tr><td><code>sf_setlevel &lt;player&gt; &lt;invisant|armitive&gt; &lt;level&gt;</code></td><td>Root admin or server console</td><td>Sets an online player&#x27;s Invisant or Armitive level to its starting XP, resets that role&#x27;s purchased upgrades, and recalculates its available upgrade points for the assigned level.</td></tr>
+<tr><td><code>sf_level</code></td><td>Player</td><td>Displays your Invisant and Armitive XP and levels.</td></tr>
+<tr><td><code>sf_cvar &lt;name&gt; [value]</code></td><td>Generic admin or server console</td><td>Reads or sets a server cvar from the console. Requires the generic admin flag.</td></tr>
+<tr><td><code>sf_nextmap [map|reset]</code></td><td>Generic admin or server console</td><td>Displays or sets the next map; use reset to follow the configured rotation.</td></tr>
+<tr><td><code>sf_armitive</code></td><td>Root admin</td><td>Moves you to the Armitive team and respawns you at its spawn.</td></tr>
+<tr><td><code>sf_update_notice &lt;seconds&gt;</code></td><td>Server console only</td><td>Announces an upcoming CS:S update restart in chat. Server console only.</td></tr>
+</table>
+<h2>Settings</h2><p>The example config enables the plugin and local movement silencing. Custom voices stay off until downloads work.</p><table><tr><th>Setting</th><th>Default</th><th>Description</th></tr>
+<tr><td><code>sf_normal_stage1_level</code></td><td>1</td><td>Role level required for normal upgrade stage 1.</td></tr>
+<tr><td><code>sf_normal_stage2_level</code></td><td>5</td><td>Role level required for normal upgrade stage 2.</td></tr>
+<tr><td><code>sf_normal_stage3_level</code></td><td>10</td><td>Role level required for normal upgrade stage 3.</td></tr>
+<tr><td><code>sf_normal_stage4_level</code></td><td>15</td><td>Role level required for normal upgrade stage 4.</td></tr>
+<tr><td><code>sf_normal_stage5_level</code></td><td>20</td><td>Role level required for normal upgrade stage 5.</td></tr>
+<tr><td><code>sf_ultimate_stage1_level</code></td><td>8</td><td>Role level required for ultimate upgrade stage 1.</td></tr>
+<tr><td><code>sf_ultimate_stage2_level</code></td><td>16</td><td>Role level required for ultimate upgrade stage 2.</td></tr>
+<tr><td><code>sf_ultimate_stage3_level</code></td><td>24</td><td>Role level required for ultimate upgrade stage 3.</td></tr>
+<tr><td><code>sf_ultimate_stage4_level</code></td><td>32</td><td>Role level required for ultimate upgrade stage 4.</td></tr>
+<tr><td><code>sf_ultimate_stage5_level</code></td><td>40</td><td>Role level required for ultimate upgrade stage 5.</td></tr>
+<tr><td><code>sf_invisant_base_armor</code></td><td>25</td><td>Invisant armor before Resilience.</td></tr>
+<tr><td><code>sf_knife_damage_min</code></td><td>50</td><td>Minimum Invisant knife damage per hit, inclusive.</td></tr>
+<tr><td><code>sf_knife_damage_max</code></td><td>75</td><td>Maximum Invisant knife damage per hit, inclusive.</td></tr>
+<tr><td><code>sf_armitive_blocked_weapons</code></td><td>m249</td><td>Comma-separated weapons Armitive cannot buy; empty allows all weapons.</td></tr>
+<tr><td><code>sf_starvation_round_delay</code></td><td>60.0</td><td>Seconds of live play after freeze time before Invisant starvation can begin.</td></tr>
+<tr><td><code>sf_starvation_combat_delay</code></td><td>45.0</td><td>Seconds without dealing or taking damage before Invisant starvation begins.</td></tr>
+<tr><td><code>sf_starvation_damage</code></td><td>1</td><td>Health an Invisant loses per starvation tick before acceleration.</td></tr>
+<tr><td><code>sf_starvation_interval</code></td><td>1.0</td><td>Seconds between Invisant starvation ticks before acceleration.</td></tr>
+<tr><td><code>sf_starvation_acceleration_delay</code></td><td>20.0</td><td>Seconds of uninterrupted starvation before accelerated ticks begin; 0 accelerates immediately.</td></tr>
+<tr><td><code>sf_starvation_accelerated_interval</code></td><td>1.0</td><td>Seconds between Invisant starvation ticks after acceleration.</td></tr>
+<tr><td><code>sf_starvation_accelerated_damage</code></td><td>3</td><td>Health an Invisant loses per starvation tick after acceleration.</td></tr>
+<tr><td><code>sf_knife_range</code></td><td>72.0</td><td>Maximum Invisant knife reach in units; 0 disables extended hits.</td></tr>
+<tr><td><code>sf_knife_cone</code></td><td>60.0</td><td>Full Invisant knife cone width in degrees; 360 covers every direction.</td></tr>
+<tr><td><code>sf_knife_attack_speed_percent</code></td><td>66</td><td>Invisant knife attack speed as a percent of normal; 100 restores the normal rate.</td></tr>
+<tr><td><code>sf_knife_miss_sound</code></td><td>1</td><td>Replay Invisant knife air-miss sounds spatially to Armitive players.</td></tr>
+<tr><td><code>sf_knife_world_hit_sound</code></td><td>1</td><td>Replay Invisant knife wall and ground impact sounds spatially to Armitive players.</td></tr>
+<tr><td><code>sf_lightweight_gravity_percent</code></td><td>10</td><td>Gravity reduction percent per Lightweight stage.</td></tr>
+<tr><td><code>sf_momentum_run_percent</code></td><td>3</td><td>Run speed increase percent per Momentum stage.</td></tr>
+<tr><td><code>sf_resilience_armor_per_stage</code></td><td>15</td><td>Maximum armor gained per Resilience stage.</td></tr>
+<tr><td><code>sf_resilience_helmet_stage</code></td><td>5</td><td>Resilience stage that grants a helmet.</td></tr>
+<tr><td><code>sf_reforging_armor_per_stage</code></td><td>1</td><td>Armor regenerated per Reforging stage each interval.</td></tr>
+<tr><td><code>sf_reforging_interval</code></td><td>3</td><td>Seconds between Reforging armor ticks and after damage.</td></tr>
+<tr><td><code>sf_vampirism_health_per_stage</code></td><td>3</td><td>Health restored per Vampirism stage on a damaging hit.</td></tr>
+<tr><td><code>sf_bloodlust_health_per_stage</code></td><td>6</td><td>Health restored per Bloodlust stage on a kill.</td></tr>
+<tr><td><code>sf_mobility_crouch_percent</code></td><td>15</td><td>Crouch speed increase percent per Mobility stage.</td></tr>
+<tr><td><code>sf_surge_base_speed</code></td><td>480</td><td>Surge speed boost at stage 1. Default: 480.</td></tr>
+<tr><td><code>sf_surge_speed_per_stage</code></td><td>30</td><td>Additional Surge speed boost for each stage after stage 1. Default: 30.</td></tr>
+<tr><td><code>sf_surge_add_momentum</code></td><td>0</td><td>Whether Surge adds to current velocity (1) or replaces it (0). Default: 0.</td></tr>
+<tr><td><code>sf_surge_cooldown</code></td><td>20</td><td>Seconds until Surge is ready after use.</td></tr>
+<tr><td><code>sf_armitive_base_health</code></td><td>100</td><td>Armitive health before Fortitude.</td></tr>
+<tr><td><code>sf_fortitude_health_per_stage</code></td><td>10</td><td>Maximum health gained per Fortitude stage.</td></tr>
+<tr><td><code>sf_recovery_health_per_stage</code></td><td>1</td><td>Health regenerated per Recovery stage each interval.</td></tr>
+<tr><td><code>sf_recovery_interval</code></td><td>3</td><td>Seconds between Recovery health ticks and after damage.</td></tr>
+<tr><td><code>sf_overload_magazine_percent</code></td><td>10</td><td>Magazine capacity increase percent per Overload stage.</td></tr>
+<tr><td><code>sf_stockpile_clips_per_stage</code></td><td>1</td><td>Extra reserve clips per Stockpile stage.</td></tr>
+<tr><td><code>sf_barrage_fire_rate_percent</code></td><td>7</td><td>Weapon fire rate increase percent per Barrage stage.</td></tr>
+<tr><td><code>sf_control_reduction_percent</code></td><td>10</td><td>Recoil and spread reduction percent per Control stage.</td></tr>
+<tr><td><code>sf_dexterity_speed_percent</code></td><td>12</td><td>Reload and weapon switch time reduction percent per Dexterity stage.</td></tr>
+<tr><td><code>sf_ward_base_seconds</code></td><td>2.0</td><td>Ward immunity duration at stage 1 in seconds.</td></tr>
+<tr><td><code>sf_ward_seconds_per_stage</code></td><td>0.5</td><td>Additional Ward seconds for each stage after stage 1.</td></tr>
+<tr><td><code>sf_ward_cooldown</code></td><td>30</td><td>Seconds until Ward is ready after it ends.</td></tr>
+<tr><td><code>sf_upgrade_purchase_window</code></td><td>20</td><td>Seconds from round start when purchased or reset upgrades apply immediately.</td></tr>
+<tr><td><code>sf_enable</code></td><td>0</td><td>Enables Shroudfire.</td></tr>
+<tr><td><code>sf_invisant_team</code></td><td>3</td><td>Selects the Invisant team: 2 for Terrorists or 3 for Counter-Terrorists.</td></tr>
+<tr><td><code>sf_visible_per_invisant</code></td><td>4</td><td>Maximum number of Armitive players per Invisant player.</td></tr>
+<tr><td><code>sf_round_time</code></td><td>120</td><td>Seconds before an unfinished round ends with an Armitive win.</td></tr>
+<tr><td><code>sf_map_max_rounds</code></td><td>20</td><td>Completed rounds per map before changing maps; 0 disables the round limit.</td></tr>
+<tr><td><code>sf_map_time_limit</code></td><td>30.0</td><td>Minutes per map with at least two active human players before changing maps; 0 disables the time limit.</td></tr>
+<tr><td><code>sf_map_rotation</code></td><td>de_dust2,de_mirage,de_inferno,de_nuke</td><td>Comma-separated map rotation; unavailable maps are skipped.</td></tr>
+<tr><td><code>sf_timeout_kill_invisant</code></td><td>0</td><td>Kill surviving Invisant at timeout; 0 reveals them during the 10-second round transition instead.</td></tr>
+<tr><td><code>sf_timeout_reveal_seconds</code></td><td>2.0</td><td>Seconds for surviving Invisant to fade from invisible to visible after timeout; 0 reveals instantly.</td></tr>
+<tr><td><code>sf_map_join_grace</code></td><td>30</td><td>Seconds after map start in which joining players can respawn as Armitive.</td></tr>
+<tr><td><code>sf_afk_seconds</code></td><td>30</td><td>Seconds of inactivity after freeze time before a player is killed; 0 disables AFK deaths.</td></tr>
+<tr><td><code>sf_afk_warning_seconds</code></td><td>10</td><td>Seconds before AFK death to start the HUD countdown and warning sounds; 0 disables the warnings.</td></tr>
+<tr><td><code>sf_afk_limit</code></td><td>5</td><td>Consecutive deaths without live-round movement before a player is kicked; 0 disables kicks.</td></tr>
+<tr><td><code>sf_camping_distance</code></td><td>256.0</td><td>Distance in units an Armitive must move from the tracked position before the camping timer resets; 0 disables anti-camping.</td></tr>
+<tr><td><code>sf_camping_warning_seconds</code></td><td>20.0</td><td>Seconds an Armitive may remain within the camping distance before the HUD and voice warning.</td></tr>
+<tr><td><code>sf_camping_damage_delay</code></td><td>10.0</td><td>Seconds from the Armitive camping warning until health loss begins.</td></tr>
+<tr><td><code>sf_camping_damage</code></td><td>10</td><td>Health an Armitive loses per second while camping.</td></tr>
+<tr><td><code>sf_queue_reconnect_grace</code></td><td>600</td><td>Seconds a reconnecting player retains queue age; 0 is unlimited.</td></tr>
+<tr><td><code>sf_xp_kill_invisant</code></td><td>50</td><td>XP for an Invisant killing an Armitive player.</td></tr>
+<tr><td><code>sf_xp_kill_armitive</code></td><td>100</td><td>XP for an Armitive player killing an Invisant.</td></tr>
+<tr><td><code>sf_xp_round_win_invisant</code></td><td>70</td><td>XP for an Invisant participant on a completed win.</td></tr>
+<tr><td><code>sf_xp_round_win_armitive</code></td><td>35</td><td>XP for an Armitive participant on a completed win.</td></tr>
+<tr><td><code>sf_xp_armitive_pistol_percent</code></td><td>125</td><td>Armitive pistol kill XP as a percent of Armitive base kill XP; 100 removes the bonus.</td></tr>
+<tr><td><code>sf_xp_armitive_knife_percent</code></td><td>150</td><td>Armitive knife kill XP as a percent of Armitive base kill XP; 100 removes the bonus.</td></tr>
+<tr><td><code>sf_xp_level_base</code></td><td>100</td><td>Base XP for the level curve.</td></tr>
+<tr><td><code>sf_kill_streak_window</code></td><td>10.0</td><td>Maximum seconds between a player&#x27;s consecutive opponent kills for a kill streak.</td></tr>
+<tr><td><code>sf_xp_assist_fraction</code></td><td>0.25</td><td>Fraction of the current role&#x27;s kill XP awarded for a qualifying assist. Set to 0 to disable assist XP.</td></tr>
+<tr><td><code>sf_xp_assist_damage_share</code></td><td>0.25</td><td>Minimum share of a victim&#x27;s opposing-player damage required for assist XP. 0.25 means 25 percent.</td></tr>
+<tr><td><code>sf_xp_first_blood_percent</code></td><td>125</td><td>Kill XP percent for First Blood; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_double_kill_percent</code></td><td>120</td><td>Kill XP percent for Double Kill; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_killing_spree_percent</code></td><td>130</td><td>Kill XP percent for Killing Spree; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_ultra_kill_percent</code></td><td>140</td><td>Kill XP percent for Ultra Kill; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_rampage_percent</code></td><td>150</td><td>Kill XP percent for Rampage; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_dominating_percent</code></td><td>160</td><td>Kill XP percent for Dominating; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_unstoppable_percent</code></td><td>170</td><td>Kill XP percent for Unstoppable; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_monster_kill_percent</code></td><td>180</td><td>Kill XP percent for Monster Kill; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_godlike_percent</code></td><td>190</td><td>Kill XP percent for Godlike; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_xp_holy_shit_percent</code></td><td>200</td><td>Kill XP percent for Holy Shit; multiplies the Armitive knife or pistol bonus when applicable.</td></tr>
+<tr><td><code>sf_invisant_see_teammates</code></td><td>1</td><td>Allow Invisant players to see and spectate Invisant teammates.</td></tr>
+<tr><td><code>sf_discord_link</code></td><td>https://discord.gg/TMV2DEPhqT</td><td>Discord server invite link in chat messages; empty disables the messages.</td></tr>
+<tr><td><code>sf_discord_message</code></td><td>1</td><td>Enables Discord invite messages in chat.</td></tr>
+<tr><td><code>sf_discord_interval</code></td><td>1200</td><td>Seconds between recurring Discord invite messages.</td></tr>
+<tr><td><code>sf_audio_hint</code></td><td>1</td><td>Enables the automatic audio chat hint.</td></tr>
+<tr><td><code>sf_audio_hint_cooldown</code></td><td>60</td><td>Seconds before the automatic audio chat hint can trigger again.</td></tr>
+<tr><td><code>sf_cheat_hint</code></td><td>1</td><td>Enables the automatic cheat chat hint.</td></tr>
+<tr><td><code>sf_cheat_hint_cooldown</code></td><td>60</td><td>Seconds before the automatic cheat chat hint can trigger again.</td></tr>
+<tr><td><code>sf_upgrade_hint</code></td><td>1</td><td>Enables the automatic upgrade chat hint.</td></tr>
+<tr><td><code>sf_upgrade_hint_cooldown</code></td><td>60</td><td>Seconds before the automatic upgrade chat hint can trigger again.</td></tr>
+<tr><td><code>sf_bugs_hint</code></td><td>1</td><td>Enables the automatic known-bugs chat hint.</td></tr>
+<tr><td><code>sf_bugs_hint_cooldown</code></td><td>60</td><td>Seconds before the automatic known-bugs chat hint can trigger again.</td></tr>
+<tr><td><code>sf_menu_hint</code></td><td>1</td><td>Enables the automatic upgrade-menu chat hint.</td></tr>
+<tr><td><code>sf_menu_hint_cooldown</code></td><td>60</td><td>Seconds before the automatic upgrade-menu chat hint can trigger again.</td></tr>
+<tr><td><code>sf_reset_hint</code></td><td>1</td><td>Enables the automatic upgrade-reset chat hint.</td></tr>
+<tr><td><code>sf_reset_hint_cooldown</code></td><td>60</td><td>Seconds before the automatic upgrade-reset chat hint can trigger again.</td></tr>
+<tr><td><code>sf_rank_hint</code></td><td>1</td><td>Enables the automatic rank chat hint.</td></tr>
+<tr><td><code>sf_rank_hint_cooldown</code></td><td>60</td><td>Seconds before the automatic rank chat hint can trigger again.</td></tr>
+<tr><td><code>sf_hud</code></td><td>1</td><td>Show role, level, XP and queue position in the round-start center panel.</td></tr>
+<tr><td><code>sf_round_info_seconds</code></td><td>10</td><td>Seconds to show the round-start role, level, XP and queue panel. Set to 0 to disable.</td></tr>
+<tr><td><code>sf_hud_kill_seconds</code></td><td>5.0</td><td>Seconds to show each kill XP line, including post-round kills; 0 hides these lines.</td></tr>
+<tr><td><code>sf_hud_assist_seconds</code></td><td>5.0</td><td>Seconds to show each assist XP line; 0 hides these lines without changing XP awards.</td></tr>
+<tr><td><code>sf_hud_round_result_seconds</code></td><td>10.0</td><td>Seconds to show the round win or draw title; 0 hides the title.</td></tr>
+<tr><td><code>sf_hud_round_win_xp_seconds</code></td><td>10.0</td><td>Seconds to show round-win XP; 0 hides this line without changing XP awards.</td></tr>
+<tr><td><code>sf_hud_levelup_seconds</code></td><td>5.0</td><td>Seconds to show a level-up line; 0 hides these lines.</td></tr>
+<tr><td><code>sf_hud_priority_seconds</code></td><td>5.0</td><td>Seconds to show earned Invisant queue priority; 0 hides this line without changing priority.</td></tr>
+<tr><td><code>sf_hud_no_rewards_seconds</code></td><td>5.0</td><td>Seconds to show No rewards after round end following a post-round kill; 0 hides this line.</td></tr>
+<tr><td><code>sf_timeout_warning_seconds</code></td><td>10</td><td>Seconds before timeout when the Invisant fade warning and reveal voice begin; 0 disables both.</td></tr>
+<tr><td><code>sf_wallhack</code></td><td>1</td><td>Show living Armitive with through-wall outlines to living Invisant players.</td></tr>
+<tr><td><code>sf_ward_screen_tint</code></td><td>85</td><td>Green screen tint strength while Ward is active. Set to 0 to disable; 255 is maximum.</td></tr>
+<tr><td><code>sf_extra_spawns</code></td><td>1</td><td>Create validated additional team spawns on Windows and Linux when the map does not have enough for the maximum roster.</td></tr>
+<tr><td><code>sf_blood_amount</code></td><td>4</td><td>Number of additional blood-splatter bursts when an Armitive damages an Invisant or an Invisant knife damages an Armitive. Set to 0 for normal blood only.</td></tr>
+<tr><td><code>sf_tonemap_exposure</code></td><td>0.40</td><td>Attempts to set HDR exposure on the map&#x27;s tonemap controller. Stock de_dust2 lighting is baked and unaffected.</td></tr>
+<tr><td><code>sf_admin_spectate</code></td><td>1</td><td>Allow administrators with the generic flag to observe players or use a spectator free camera.</td></tr>
+<tr><td><code>sf_custom_sounds</code></td><td>0</td><td>Play Shroudfire voice clips when clients have downloaded the supplied sounds.</td></tr>
+<tr><td><code>sf_silent_local_movement</code></td><td>0</td><td>Block an Invisant&#x27;s own footsteps, jumps, and landings using Source client prediction overrides.</td></tr>
+<tr><td><code>sf_round_win_sound_delay</code></td><td>0.5</td><td>Delay in seconds before playing an Armitive win, Invisant win, or round draw voice clip.</td></tr>
+<tr><td><code>sf_announce</code></td><td>1</td><td>Show a chat notice when an Armitive player earns Invisant priority.</td></tr>
+<tr><td><code>sf_map_lightstyle</code></td><td>h</td><td>Baked map-light brightness: a is darkest, h is dark, m is normal.</td></tr>
+<tr><td><code>sf_invisant_screen_tint</code></td><td>125</td><td>Red color-grade strength for Invisant players; 0 disables it.</td></tr>
+</table>
+<h2>Automatic chat hints</h2><p>Hints use the CS2 wording with a green prefix and brown command names. For example: [Shroudfire] Type upgrade to learn about them.</p><h2>Audio preferences</h2><p>Eight persistent toggles appear on one page: Round Start, Round End, Kill Streak, Starvation, Timeout, Camping, AFK, Menu. Camping is independent of AFK. All categories default ON.</p><h2>Knife damage and purchases</h2><p>Knife damage rolls once per hit within the inclusive configured range; reversed bounds are accepted and equal bounds give fixed damage. sf_armitive_blocked_weapons accepts comma-separated or whitespace-separated CS:S names and aliases, case-insensitively, with an optional weapon_ prefix. The default blocks m249; an empty string allows all purchases. Buy menu, console, autobuy and rebuy are covered; pickups and spawn loadouts follow existing rules. Unknown names and CS2-only weapons are reported and ignored.</p><h2>Starvation</h2><p>Both the live-round and combat delays must expire. Defaults: 60 seconds after freeze time, 45 seconds without dealing or taking damage, 1 HP each second, then 3 HP each second after 20 seconds of continuous starvation. A 100-HP Invisant starting at 1:00 dies with roughly 0:15 left in a two-minute round. The first tick is immediate. Fractional intervals run each game frame without catch-up damage bursts. Combat resets starvation and acceleration. Solo play and rounds without living Armitive do not cause starvation.</p>
+    </div>
+</body>
+</html>

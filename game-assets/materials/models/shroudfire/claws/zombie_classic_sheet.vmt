@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture"	"models\shroudfire\claws\zombie_classic_sheet"
+	"$bumpmap"		"models\shroudfire\claws\zombie_classic_sheet_normal"
+}

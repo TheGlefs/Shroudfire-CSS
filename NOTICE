@@ -1,0 +1,12 @@
+Shroudfire for Counter-Strike: Source
+Copyright 2026 TheGlefs
+
+The combined SourceMod plugin is distributed under GPL-3.0 (LICENSE).
+As a special exception, permission is granted to link this plugin with
+Half-Life 2, the Source Engine, and Valve game mods. All other GPL terms apply.
+SourceMod API code retains the AlliedModders notices in
+third-party/SourceMod-LICENSE.txt.
+
+The 51 MP3 voices and converted copies are excluded from the source-code
+licenses and governed by SOUNDS-LICENSE.md. Third-party models, materials
+and claw sounds retain their owners' terms; see game-assets/ATTRIBUTION.md.
